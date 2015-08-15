@@ -5,6 +5,7 @@ main () print("aaaaaaaaaaaaaaah");
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=GameModeInit-=-=-=-=-=-=-=-=-=-
 public OnGameModeInit() {
+	LimitGlobalChatRadius(0.20);
 	return 1;
 }
 public OnGameModeExit() {
@@ -14,7 +15,9 @@ public OnGameModeExit() {
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=OnPlayer'S-=-=-=-=-=-=-=-=-=-=
 public OnPlayerConnect(playerid) {
-	ShowPlayerDialog(playerid, DialogMenu, DIALOG_STYLE_LIST, "RP - BR", "Login\nRegistrar\nSair\nAbrir", "Cancelar");
+
+	GetPlayerName(playerid, PlayerName[playerid], 24);
+	ShowPlayerDialog(playerid, DialogMenu, DIALOG_STYLE_LIST, "RP - BR", "Login\nRegistrar\nSair","Abrir", "Cancelar");
 	return 1;
 }
 public OnPlayerDisconnect(playerid, reason) {
@@ -28,7 +31,12 @@ public OnPlayerDeath(playerid, killerid, reason) {
 	return 1;
 }
 public OnPlayerText(playerid, text[]) {
-	return 1;
+	new MsgText[130];
+	if(PlayerData[playerid][Logado] != false) {
+		format(MsgText, sizeof(MsgText), "* %s [%d]: %s", PlayerName[playerid], playerid, text);
+		SendClientMessageToAll(GetPlayerColor(playerid), MsgText);
+	}
+	return 0;
 }
 public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger) {
 	return 1;
@@ -58,6 +66,3 @@ public OnPlayerLeaveRaceCheckpoint(playerid) {
 	return 1;
 }
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-function::(teste) {
-	return 1;
-}
