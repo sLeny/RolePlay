@@ -1,0 +1,29 @@
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=Macros-=-=-=-=-=-=-=-=-=-
+#define Function::(%0) forward(%0) public (%0)
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+//-=-=--=---=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-Defines-=-==-=-=-=-=-=-=-=-
+#define DialogMenu 1
+#define DialogLojas 2
+
+
+//-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=Variaveis-=-=--=-=--==---=-
+enum pData {
+	Senha[50],
+	Level,
+	Dinheiro,
+	Skin,
+	bool:Logado
+};
+enum pProf {
+	pID,
+	Nome[20],
+	Cor[10],
+	Float:PosSpawn[3],
+	Salario
+};
+new PlayerData[MAX_PLAYERS][pData];
+new pProfissao[MAX_PLAYERS][pProf] = {
+	{0, "Desempregado", "0xDCDCDC77", {0.0, 0.0, 0.0}, 10},
+	{1, "Petrolheiro", "0x00B2EE77", {0.0, 0.0, 0.0}, 590}
+};
