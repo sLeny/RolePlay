@@ -1,0 +1,6 @@
+OnGameModeVehicles() {
+	return 1;
+}
+OnGameModePickUpsAndIcons() {
+	return 1;
+}
