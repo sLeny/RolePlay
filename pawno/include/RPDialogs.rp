@@ -1,0 +1,3 @@
+Dialog_Menu(playerid, response, listitem) {
+	return 1;
+}
